@@ -1,0 +1,23 @@
+<ion-row class="weather-app-news">
+    <div class="mx-3">
+        <button class="weather-app-news__badge badge mx-2"
+        [ngClass]="categoryDef === cat.value ? 'active' : ''"
+        (click)="filterCat(cat)"
+        *ngFor="let cat of categories">
+            {{ cat.nombre }}
+        </button>
+    </div>
+  <ion-col size="12">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let post of articles">
+        <ion-card [href]="post.url" target="_blank" class="weather-app-news__card">
+        <div class="img-thumbnail" style="background-image: url({{post.urlToImage}});"></div>
+          <ion-item class="item">
+            <ion-label class="text-light">{{ post.title }}</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-col>
+
+</ion-row>

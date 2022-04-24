@@ -1,0 +1,82 @@
+.weather-app {
+  --background: rgba(238, 238, 238, 0.2);
+  background-image: url(../assets/img/backgrounds/bg-grad.png);
+  background-position: center;
+  background-size: cover;
+
+  --padding-bottom: 4rem;
+
+  &__header {
+    form {
+      display: flex;
+    margin: 1rem 0.6rem;
+    margin-bottom: 0.3rem;
+    padding: 0 1rem;
+    }
+  }
+
+  &__main {
+    margin: 0 1rem;
+  }
+
+  &__widget-highlight {
+    margin-top: 1rem;
+  }
+
+  &__card {
+    padding: 1rem;
+    width: 100%;
+    margin: 0.4rem auto;
+
+    .img {
+      img {
+        width: 50%;
+        position: relative;
+        bottom: 5px;
+        right: 10px;
+      }
+    }
+
+    .info {
+      .temp {
+        font-size: 2.5rem;
+      }
+
+      .mimax-temp {
+        width: auto;
+        padding-right: 6px;
+        &:last-child {
+          padding-left: 6px;
+        }
+      }
+    }
+
+    &.d-flex {
+      div {
+        width: 50%;
+
+        .fas {
+          margin: 0 0.3rem;
+        }
+      }
+    }
+    .pron-rw {
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  ion-tabs {
+    height: 60px;
+    z-index: 100;
+    bottom: 1rem;
+    top: inherit;
+
+    ion-tab-bar {
+      border-radius: 2rem;
+      margin: 0 2rem;
+    }
+  }
+}

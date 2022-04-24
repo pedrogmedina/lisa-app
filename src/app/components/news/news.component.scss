@@ -1,0 +1,44 @@
+.weather-app-news {
+  margin-bottom: 2rem;
+
+  &__badge {
+    border-radius: 0;
+    background-color: transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    font-weight: 500;
+
+    &.active {
+      border-color: #fff;
+    }
+  }
+
+  &__card {
+    background: transparent;
+    border: 0;
+    border-radius: 25px;
+    margin: 0.5rem 1rem;
+    overflow: hidden;
+
+    .img-thumbnail {
+      background-position: center;
+      background-size: cover;
+      border: 0;
+      border-radius: 0 0 10px 10px;
+      height: 13rem;
+      width: 100%;
+    }
+
+    .item {
+      --background: #3b4f6d;
+      --inner-border-width: 0;
+
+      ion-label {
+        white-space: initial;
+        height: 150px;
+      }
+    }
+
+  }
+}

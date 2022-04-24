@@ -1,0 +1,32 @@
+<ion-row class="weather-app-wdget">
+  <ion-col size="12" *ngFor="let i of cityName">
+    <div class="weather-app-wdget__card">
+      <div class="head">
+        <p class="fs-4">Hoy</p>
+        <small>
+          Sat, 3 Ago
+        </small>
+      </div>
+
+      <div class="body">
+        <div class="w-50">
+          <p class="temp d-flex align-items-start">{{weather.main.temp}}
+            <span class="fs-1 pt-3 ps-1 fw-normal text-warning">ºC</span>
+          </p>
+        </div>
+        <div class="w-50 text-center text-primary">
+          <img src="../assets/img/weather-icons/{{weather.weather[0].icon}}.svg" alt="weather-clima-img">
+        </div>
+        
+      </div>
+      <div class="foot">
+        <p class="text-light">
+          <i class="fas fa-map-marker-alt text-warning me-1"></i>
+          {{weather.name}}, {{weather.sys.country}}
+        </p>
+      </div>
+    </div>
+  </ion-col>
+</ion-row>
+
+<app-news></app-news>

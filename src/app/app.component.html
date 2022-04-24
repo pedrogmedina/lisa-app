@@ -1,0 +1,101 @@
+<ion-content [scrollEvents]="true" class="weather-app">
+  <div class="weather-app__header px-4">
+    <form class="shadow rounded-pill bg-white py-1 animate__animated animate__bounce"
+    (submit)="submitLocation(cityName)">
+    <button class="bg-white" *ngIf="weather" (click)="hideCityPanel()">
+      <i class="fas fa-chevron-left text-muted"></i>
+    </button>
+    <ion-input class="fs-6 fw-normal text-muted text-capitalize" placeholder="Buscar" #cityName></ion-input>
+    <button class="btn text-muted" slot="end">
+      <i class="fas fa-search fs-6"></i>
+    </button>
+  </form>
+   <div *ngIf="errorSearch" class="ion-padding-start">
+    <p class="text-danger fs-6 fw-normal m-0 p-0">Vuelve a intentarlo</p>
+  </div>
+  </div>
+ 
+  <ion-grid fixed class="weather-app__widget-highlight" *ngIf="!weather">
+    <app-widget-main [today]="today"></app-widget-main>
+  </ion-grid>
+  <ion-grid fixed class="weather-app__main" *ngIf="weather">
+    <ion-row>
+      <ion-col size="12">
+        <div class="weather-app__card d-flex bg-white rounded shadow">
+          <div class="img text-center">
+            <img src="../assets/img/weather-icons/{{weather.weather[0].icon}}.svg" alt="weather-clima-img">
+          </div>
+          <div class="info text-primary">
+            <p class="fs-6">{{weather.name}}, {{weather.sys.country}}</p>
+            <p class="temp">{{weather.main.temp}}º</p>
+            <div class="d-flex w-100">
+              <div class="mimax-temp d-flex align-items-center border-end">
+                <p class="fs-6 fw-500">{{weather.main.temp_max}}º</p>
+                <i class="fas fa-caret-up text-danger fs-4"></i>
+              </div>
+              <div class="mimax-temp d-flex justify-content-end align-items-center">
+                <i class="fas fa-caret-down text-success fs-4"></i>
+                <p class="fs-6 fw-normal">{{weather.main.temp_min}}º</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <div class="weather-app__card text-center bg-white rounded shadow">
+          <i class="fas fa-wind m-1 fs-1"></i>
+          <p>{{weather.wind.speed}}km/h</p>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="weather-app__card text-center bg-white rounded shadow" (click)="presentModal()">
+          <i class="fas fa-cloud-rain m-1 fs-1"></i>
+          <p>{{forecast.list[1].pop}}%</p>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="weather-app__card text-center bg-white rounded shadow">
+          <i class="fas fa-water m-1 fs-1"></i>
+          <p>{{weather.main.humidity}}%</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="weather-app__card bg-white rounded shadow">
+          <p class="fs-6 text-muted mb-3">Próximos días</p>
+          <div class="d-flex pron-rw">
+            <img src="../assets/img/weather-icons/{{forecast.list[12].weather[0].icon}}.svg" width="26px" alt="">
+            <p class="text-capitalize">{{forecast.list[12].weather[0].description}}</p>
+            <p class="fw-bold">{{forecast.list[12].main.temp}}º</p>
+          </div>
+          <div class="d-flex pron-rw">
+            <img src="../assets/img/weather-icons/{{forecast.list[20].weather[0].icon}}.svg" width="26px" alt="">
+             <p class="text-capitalize">{{forecast.list[20].weather[0].description}}</p>
+            <p class="fw-bold">{{forecast.list[20].main.temp}}º</p>
+          </div>
+          <div class="d-flex pron-rw">
+            <img src="../assets/img/weather-icons/{{forecast.list[20].weather[0].icon}}.svg" width="26px" alt="">
+            <p class="text-capitalize">{{forecast.list[20].weather[0].description}}</p>
+            <p class="fw-bold">{{forecast.list[20].main.temp}}º</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-tabs class="position-fixed">
+    <ion-tab-bar class="pb-1 pt-1 shadow" slot="bottom">
+      <ion-tab-button tab="schedule">
+        <ion-icon class="fs-2" name="layers-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="schedule">
+        <ion-icon class="fs-2 text-warning" name="home-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="schedule">
+        <ion-icon class="fs-2" name="settings-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

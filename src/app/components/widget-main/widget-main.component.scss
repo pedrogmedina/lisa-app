@@ -1,0 +1,38 @@
+.weather-app-wdget {
+  padding: 1rem;
+
+  &__card {
+    align-items: center;
+    background-color: #3b4f6d;
+    border-radius: 2rem;
+    padding: 2rem;
+    width: 100%;
+
+    .head {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .body {
+      align-items: center;
+      display: flex;
+
+      .temp {
+        color: #fff;
+        font-size: 4rem;
+        font-weight: 600;
+      }
+
+      .img {
+        margin: 0 auto;
+
+        img {
+          width: 40%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
