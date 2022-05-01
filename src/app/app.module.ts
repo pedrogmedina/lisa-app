@@ -11,6 +11,8 @@ import { PopModalComponent } from './shareds/pop-modal/pop-modal.component';
 
 import localeEs from "@angular/common/locales/es";
 import { registerLocaleData } from "@angular/common";
+import { ExplorerPageComponent } from './pages/explorer/explorer-page.component';
+import { HomePageComponent } from './pages/home/home.component';
 registerLocaleData(localeEs, "es");
 
 @NgModule({
@@ -18,7 +20,9 @@ registerLocaleData(localeEs, "es");
     AppComponent,
     WidgetMainComponent,
     HeaderComponent,
-    PopModalComponent
+    PopModalComponent,
+    ExplorerPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
