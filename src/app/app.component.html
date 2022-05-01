@@ -1,5 +1,5 @@
 <ion-content [scrollEvents]="true" class="weather-app">
-  <div class="weather-app__header px-4">
+  <div class="weather-app__header px-4" *ngIf="presentSearchBar">
     <form class="shadow rounded-pill bg-white py-1 animate__animated animate__bounce"
     (submit)="submitLocation(cityName)">
     <button class="bg-white" *ngIf="weather" (click)="hideCityPanel()">
@@ -87,8 +87,8 @@
   </ion-grid>
   <ion-tabs class="position-fixed">
     <ion-tab-bar class="pb-1 pt-1 shadow" slot="bottom">
-      <ion-tab-button tab="schedule">
-        <ion-icon class="fs-2" name="layers-outline"></ion-icon>
+      <ion-tab-button tab="search">
+        <ion-icon class="fs-2" name="map-outline"></ion-icon>
       </ion-tab-button>
       <ion-tab-button tab="schedule">
         <ion-icon class="fs-2 text-warning" name="home-outline"></ion-icon>

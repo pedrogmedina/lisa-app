@@ -17,6 +17,7 @@ export class WeatherService {
   getWeather(cityName: string) {
     return this.httpClient.get(`${this.URI}${cityName}`);
   }
+  
   getForecast(cityName: string) {
     return this.httpClient.get(`${this.URI_forecast}${cityName}`);
   }

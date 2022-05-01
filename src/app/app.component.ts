@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'clima-widget';
   weather: any;
   forecast: any;
+  presentSearchBar: boolean = false;
 
   firstName: string = '';
   data: any;
