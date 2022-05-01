@@ -1,0 +1,26 @@
+<!-- SearchBarHeader -->
+
+<ion-grid fixed class="lapp-explorer">
+    <ion-row class="lapp-explorer__header">
+        <form class="shadow rounded-pill w-100 bg-white py-1"
+            (submit)="submitLocation(cityName)">
+            <button class="bg-white" *ngIf="weather" (click)="hideCityPanel()">
+                <i class="fas fa-chevron-left text-muted"></i>
+            </button>
+            <ion-input class="fs-6 fw-normal text-muted text-capitalize" placeholder="Buscar" #cityName></ion-input>
+            <button class="btn text-muted" slot="end">
+                <i class="fas fa-search fs-6"></i>
+            </button>
+        </form>
+        <div *ngIf="errorSearch" class="ion-padding-start">
+            <p class="text-danger fs-6 fw-normal m-0 p-0">Vuelve a intentarlo</p>
+        </div>
+    </ion-row>
+
+    <ion-row>
+        <p class="text-white">
+            Resultados...
+        </p>
+    </ion-row>
+</ion-grid>
+<!-- End SearchBarHeader -->
