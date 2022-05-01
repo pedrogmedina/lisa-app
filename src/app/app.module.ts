@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -7,15 +7,17 @@ import { AppComponent } from './app.component';
 import { WidgetMainComponent } from './components/widget-main/widget-main.component';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './components/header/header.component';
-import { NewsComponent } from './components/news/news.component';
 import { PopModalComponent } from './shareds/pop-modal/pop-modal.component';
+
+import localeEs from "@angular/common/locales/es";
+import { registerLocaleData } from "@angular/common";
+registerLocaleData(localeEs, "es");
 
 @NgModule({
   declarations: [
     AppComponent,
     WidgetMainComponent,
     HeaderComponent,
-    NewsComponent,
     PopModalComponent
   ],
   imports: [
@@ -25,7 +27,7 @@ import { PopModalComponent } from './shareds/pop-modal/pop-modal.component';
     IonicModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
