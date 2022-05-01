@@ -6,15 +6,6 @@
 
   --padding-bottom: 4rem;
 
-  &__header {
-    form {
-      display: flex;
-    margin: 1rem 0.6rem;
-    margin-bottom: 0.3rem;
-    padding: 0 1rem;
-    }
-  }
-
   &__main {
     margin: 0 1rem;
   }
@@ -68,15 +59,28 @@
     }
   }
 
-  ion-tabs {
+  &__mbTab {
+    align-items: center;
+    display: flex;
+    position: fixed;
     height: 60px;
     z-index: 100;
-    bottom: 1rem;
+    bottom: 0;
     top: inherit;
+    width: 100%;
+    background-color: var(--bs-light);
 
-    ion-tab-bar {
-      border-radius: 2rem;
+    > div {
       margin: 0 2rem;
+
+      .links {
+        a {
+          color: var(--bs-gray);
+        }
+      }
     }
+
   }
+
+
 }

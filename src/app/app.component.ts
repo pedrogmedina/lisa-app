@@ -4,23 +4,32 @@ import { pipe } from 'rxjs';
 import { WeatherService } from './services/weather-services/weather.service';
 import { PopModalComponent } from './shareds/pop-modal/pop-modal.component';
 
+const navigation = [
+ {id: 1, name: 'explorer', path: '/explorer', icon: 'search-outline' },
+ {id: 2, name: 'home', path: '/home', icon: 'home-outline' },
+ {id: 3, name: 'settings', path: '/settings', icon: 'settings-outline' }
+]
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'clima-widget';
-  weather: any;
   forecast: any;
   presentSearchBar: boolean = false;
+  weather: any;
 
   firstName: string = '';
   data: any;
 
   today: number = Date.now();
 
-  errorSearch: boolean = false;
+  public navigation = navigation;
+
+  
 
   constructor(
     private weatherService: WeatherService,
@@ -43,20 +52,20 @@ export class AppComponent {
     return await modal.present();
   }
 
-  getWeather(cityName: string) {
-    this.weatherService.getWeather(cityName).subscribe(
-      res => {
-        this.weather = res;
-        this.weather.main.temp = Math.round(this.weather.main.temp);
-        this.weather.main.temp_max = Math.round(this.weather.main.temp_max);
-        this.weather.main.temp_min = Math.round(this.weather.main.temp_min);
-        console.log(res);
-      },
-      err => {
-        this.errorSearch = !this.errorSearch;
-      }
-    )
-  }
+  // getWeather(cityName: string) {
+  //   this.weatherService.getWeather(cityName).subscribe(
+  //     res => {
+  //       this.weather = res;
+  //       this.weather.main.temp = Math.round(this.weather.main.temp);
+  //       this.weather.main.temp_max = Math.round(this.weather.main.temp_max);
+  //       this.weather.main.temp_min = Math.round(this.weather.main.temp_min);
+  //       console.log(res);
+  //     },
+  //     err => {
+  //       this.errorSearch = !this.errorSearch;
+  //     }
+  //   )
+  // }
 
   getForecast(cityName: string) {
     this.weatherService.getForecast(cityName).subscribe(
@@ -68,20 +77,9 @@ export class AppComponent {
         console.log(res);
       },
       err => {
-        this.errorSearch = !this.errorSearch;
+        // this.errorSearch = !this.errorSearch;
+        alert("Error forecast")
       }
     )
-  }
-
-  submitLocation(cityName: any) {
-    this.getWeather(cityName.value);
-    this.getForecast(cityName.value);
-    cityName.value = '';
-    cityName.focus;
-    return false;
-  }
-
-  hideCityPanel() {
-    this.weather = false;
   }
 }
